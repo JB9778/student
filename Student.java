@@ -1,6 +1,6 @@
+package studentproject;
 
-
-// lombok 적용
+//lombok 적용
 public class Student {
 	private String name;
 	private String department;
@@ -9,7 +9,6 @@ public class Student {
 	
 	//생성자 추가
 	
-	
-	
+
 	// getter/setter 추가
 }
