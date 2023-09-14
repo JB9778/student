@@ -1,12 +1,14 @@
+package studentproject;
+
 import java.util.*;
 
 public class StudentManager {
 	private Scanner scanner = new Scanner(System.in);
 	private ArrayList<Student> dept = new ArrayList<Student>();
-	Student std = new Student();
 	private void read() {
 		System.out.println("학생 이름,학과,학번,학점평균 입력하세요.");
 		for (int i=0; i<4; i++) {
+			Student std = new Student();
 			System.out.print(">> ");
 			String text = scanner.nextLine();
 			StringTokenizer st = new StringTokenizer(text, ",");
@@ -16,11 +18,11 @@ public class StudentManager {
 			std.setId(st.nextToken());
 			std.setGrade(Double.parseDouble(st.nextToken()));
 			
-			System.out.println(std);
+//			System.out.println(std);
 			
 			// ArrayList에 저장
-			dept.add(std);
-			
+			dept.add(i,std);
+			dept.get(i);
 //			System.out.println(std.getName());
 //			System.out.println(std.getDepartment());
 //			System.out.println(std.getId());
@@ -30,7 +32,7 @@ public class StudentManager {
 	
 	private void printAll() { // 일부러 Iterator로 작성해 보았음
 		
-		System.out.println(dept.get(0));
+//		System.out.println(dept.get(0));
 		Iterator<Student> it = dept.iterator();
 		while (it.hasNext()) {
 			//학생 정보 출력
@@ -48,7 +50,14 @@ public class StudentManager {
 				return; // 종료
 			
 			for(int i=0; i<dept.size(); i++) { // dept에 있는 모든 학생 검색
-				
+				Student student = dept.get(i);
+				if(student.getName().equals(name)) {
+					System.out.println(student.getName()+", ");
+					System.out.println(student.getDepartment()+", ");
+					System.out.println(student.getId()+", ");
+					System.out.println(student.getGrade()+", ");
+					break;
+				}
 				
 				
 			} // end of while
